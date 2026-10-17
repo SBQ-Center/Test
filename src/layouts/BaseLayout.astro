@@ -1,0 +1,4 @@
+---
+import'../styles/global.css';import Header from'../components/layout/Header.astro';import Footer from'../components/layout/Footer.astro';import SEOHead from'../components/seo/SEOHead.astro';import Schema from'../components/seo/OrganizationSchema.astro';import{getUI}from'../i18n/translations';const{title,description,locale='ar',noindex=false}=Astro.props;const t=getUI(locale);
+---
+<!doctype html><html lang={locale} dir={locale==='ar'?'rtl':'ltr'}><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width"/><SEOHead title={title} description={description} locale={locale} noindex={noindex}/><Schema locale={locale}/></head><body><a class="skip-link" href="#main">{t.skip}</a><Header locale={locale}/><main id="main"><slot/></main><Footer locale={locale}/></body></html>
