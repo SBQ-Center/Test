@@ -1,1 +1,6 @@
-.btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:.75rem 1.3rem;border:1px solid transparent;border-radius:10px;text-decoration:none;font-weight:800}.btn--gold{background:var(--gold-500);color:var(--navy-950)}.btn--light{border-color:#fff;color:#fff}.btn--navy{background:var(--navy-900);color:#fff}.btn:disabled{cursor:not-allowed;opacity:.58}
+.btn{display:inline-flex;min-height:48px;align-items:center;justify-content:center;padding:.75rem 1.3rem;border:1px solid transparent;border-radius:10px;text-decoration:none;font-weight:800;transition:transform .12s ease,box-shadow .12s ease,opacity .12s ease}
+.btn--gold{background:linear-gradient(180deg,var(--gold-500),var(--gold-700));color:var(--surface);border-color:rgba(0,0,0,0.06)}
+.btn--light{background:transparent;color:var(--surface);border:1px solid rgba(255,255,255,0.12)}
+.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(11,19,30,0.12)}
+.btn:active{transform:translateY(-1px);box-shadow:0 6px 18px rgba(11,19,30,0.08)}
+.btn:disabled{opacity:.6;cursor:not-allowed}

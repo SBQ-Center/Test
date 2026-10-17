@@ -1,1 +1,34 @@
-:root{--navy-950:#061522;--navy-900:#0b2740;--navy-800:#123b5c;--gold-700:#806137;--gold-500:#b08d57;--gold-300:#d7bd91;--ink:#17212b;--muted:#647184;--line:#dfe5eb;--surface:#fff;--bg:#f7f8fa;--font-ar:"Noto Sans Arabic","Segoe UI",Tahoma,Arial,sans-serif;--font-en:Inter,"Segoe UI",Arial,sans-serif;--container:1200px;--radius:16px;--shadow:0 18px 45px rgb(6 21 34/.10);--header:78px}
+:root{
+  /* Colors */
+  --navy-950:#061522;
+  --navy-900:#0b2740;
+  --navy-800:#123b5c;
+  --gold-900:#7a5116;
+  --gold-700:#806137;
+  --gold-500:#b08d57;
+  --gold-300:#d7bd91;
+  --ink:#17212b;
+  --muted:#647184;
+  --line:#dfe5eb;
+  --surface:#ffffff;
+  --bg:#f7f8fa;
+
+  /* Layout tokens */
+  --container:1100px;
+  --radius:12px;
+  --header:76px;
+
+  /* Typography */
+  --font-sans: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  --font-serif: Georgia, "Times New Roman", Times, serif;
+  --base-size:16px;
+  --scale-ratio:1.125;
+  --line-height:1.5;
+
+  /* Accessibility */
+  --focus-ring: #f0d278;
+  --focus-ring-contrast: rgba(11,19,30,0.12);
+}
+
+html{font-family:var(--font-sans);font-size:var(--base-size);color:var(--ink);background:var(--bg);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{line-height:var(--line-height);min-height:100vh}
