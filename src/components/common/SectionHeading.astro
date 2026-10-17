@@ -1,0 +1,4 @@
+---
+const {id,kicker,title,lead=''}=Astro.props;
+---
+<header class="section-head"><span class="section-kicker">{kicker}</span><h2 id={id} class="section-title">{title}</h2>{lead&&<p class="section-lead">{lead}</p>}</header>
