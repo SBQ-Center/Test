@@ -1,0 +1,1 @@
+.skip-link{position:fixed;z-index:100;inset-block-start:10px;inset-inline-start:10px;padding:.7rem 1rem;background:var(--navy-950);color:#fff;transform:translateY(-150%)}.skip-link:focus{transform:none}:focus-visible{outline:3px solid var(--gold-500);outline-offset:3px}
