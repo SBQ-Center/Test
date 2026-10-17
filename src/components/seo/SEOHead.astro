@@ -7,8 +7,8 @@ const canonical = new URL(Astro.url.pathname, site.url).href, alt = alternates(A
 <meta name="description" content={description}/>
 <meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'}/>
 <link rel="canonical" href={canonical}/>
-<link rel="alternate" hrefLang="ar" href={alt.ar} />
-<link rel="alternate" hrefLang="en" href={alt.en} />
+<link rel="alternate" hreflang="ar" href={alt.ar} />
+<link rel="alternate" hreflang="en" href={alt.en} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={image} />

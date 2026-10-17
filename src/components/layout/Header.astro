@@ -14,9 +14,10 @@ const path = Astro.url.pathname;
     </a>
     <nav class="nav" aria-label={t.nav}>
       <ul class="nav-list" id="primary-nav" data-open="false">
-        {navigation[locale].map(([label, href]: [string, string], i: number) =>
-          <li key={i}><a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a></li>
-        )}
+        {navigation[locale].map((pair: readonly [string, string]) => {
+          const [label, href] = pair;
+          return <li><a href={href} aria-current={path === href ? 'page' : undefined}>{label}</a></li>;
+        })}
       </ul>
       <a class="lang" href={languageUrl} lang={locale === 'ar' ? 'en' : 'ar'}>{t.alternate}</a>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label={t.open} data-open-label={t.open} data-close-label={t.close}><span aria-hidden="true">☰</span></button>
@@ -24,11 +25,27 @@ const path = Astro.url.pathname;
   </div>
 </header>
 <script is:inline>
-const b = document.querySelector('.menu-button'), m = document.querySelector('#primary-nav');
+const b = document.querySelector('.menu-button');
+const m = document.querySelector('#primary-nav');
 if (b && m) {
-  const close = () => { m.dataset.open = 'false'; (b as any).ariaExpanded = 'false'; (b as any).ariaLabel = (b as any).dataset.openLabel; b.querySelector('span')!.textContent = '☰' };
-  b.addEventListener('click', () => { const o = m.dataset.open !== 'true'; m.dataset.open = String(o); (b as any).ariaExpanded = String(o); (b as any).ariaLabel = o ? (b as any).dataset.closeLabel : (b as any).dataset.openLabel; b.querySelector('span')!.textContent = o ? '×' : '☰' });
+  const close = () => {
+    m.dataset.open = 'false';
+    b.setAttribute('aria-expanded', 'false');
+    const openLabel = (b as any).dataset ? (b as any).dataset.openLabel : '';
+    b.setAttribute('aria-label', openLabel);
+    const span = b.querySelector('span');
+    if (span) span.textContent = '☰';
+  };
+  b.addEventListener('click', () => {
+    const o = m.dataset.open !== 'true';
+    m.dataset.open = String(o);
+    b.setAttribute('aria-expanded', String(o));
+    const label = o ? ((b as any).dataset && (b as any).dataset.closeLabel ? (b as any).dataset.closeLabel : '') : ((b as any).dataset && (b as any).dataset.openLabel ? (b as any).dataset.openLabel : '');
+    b.setAttribute('aria-label', label);
+    const span = b.querySelector('span');
+    if (span) span.textContent = o ? '×' : '☰';
+  });
   m.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-  document.addEventListener('keydown', e => { if ((e as KeyboardEvent).key === 'Escape') { close(); b.focus() } });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(); if (typeof (b as any).focus === 'function') (b as any).focus(); } });
 }
 </script>

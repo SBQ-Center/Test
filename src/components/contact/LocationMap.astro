@@ -2,9 +2,9 @@
 import LocationIcon from'../icons/LocationIcon.astro';import ExternalLinkIcon from'../icons/ExternalLinkIcon.astro';import{location,hasValidMapConfiguration}from'../../config/location';
 
 type Locale = 'ar' | 'en';
-const { locale = 'ar' } = Astro.props as { locale?: Locale };
-const ready = hasValidMapConfiguration && location.googleMapsEmbedUrl && location.googleMapsUrl;
-const title = locale === 'ar' ? location.titleAr ?? 'الموقع' : location.titleEn ?? 'Location';
+const { locale = 'ar', title: propTitle } = Astro.props as { locale?: Locale; title?: string };
+const ready = hasValidMapConfiguration() && !!location.googleMapsEmbedUrl && !!location.googleMapsUrl;
+const title = propTitle ?? (locale === 'ar' ? 'الموقع' : 'Location');
 ---
 <section class="location-map" aria-labelledby={`map-${locale}`}>
   <div class="location-map__header">

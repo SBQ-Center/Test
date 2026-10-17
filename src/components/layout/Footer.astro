@@ -16,7 +16,10 @@ const t = getUI(locale);
     <nav aria-label={t.quick}>
       <h2>{t.quick}</h2>
       <ul class="footer-links">
-        {navigation[locale].slice(0,6).map(([label, href]: [string, string], i: number) => <li key={i}><a href={href}>{label}</a></li>)}
+        {navigation[locale].slice(0,6).map((pair: readonly [string, string]) => {
+          const [label, href] = pair;
+          return <li><a href={href}>{label}</a></li>;
+        })}
       </ul>
     </nav>
 

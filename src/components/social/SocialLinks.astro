@@ -10,15 +10,15 @@ const icons: Record<string, any> = { facebook: FacebookIcon, x: XIcon, youtube: 
 {activeSocialProfiles.length > 0 &&
   <nav class="social-links" aria-label={locale === 'ar' ? 'حسابات التواصل الاجتماعي' : 'Social media profiles'}>
     <ul class="social-links__list">
-      {activeSocialProfiles.map((profile: SocialProfile, i: number) => {
+      {activeSocialProfiles.map((profile: SocialProfile) => {
         const Icon = icons[profile.key];
         const label = profile.label[locale as Locale];
-        return <li key={i}>
+        return <li>
           <a class="social-links__link" href={profile.url} target="_blank" rel="noopener noreferrer" aria-label={`${label}, ${locale === 'ar' ? 'يفتح في نافذة جديدة' : 'opens in a new tab'}`}>
             <Icon/>
             {showLabel && <span>{label}</span>}
           </a>
-        </li>
+        </li>;
       })}
     </ul>
   </nav>

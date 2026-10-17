@@ -9,9 +9,10 @@ const c = home[locale];
   <div class="container">
     <Heading kicker={locale === 'ar' ? 'خدماتنا' : 'Services'} title={locale === 'ar' ? 'حلول بحثية واستشارية متكاملة' : 'Integrated Research and Consulting Solutions'} />
     <div class="grid grid--3">
-      {c.services.map(([title, text]: [string, string], i: number) =>
-        <Card number={String(i+1).padStart(2,'0')} title={title} text={text} />
-      )}
+      {c.services.map((pair: readonly [string, string], i: number) => {
+        const [title, text] = pair;
+        return <Card number={String(i+1).padStart(2,'0')} title={title} text={text} />;
+      })}
     </div>
   </div>
 </section>

@@ -9,9 +9,10 @@ const c = home[locale];
   <div class="container">
     <Heading id={`about-${locale}`} kicker={c.about.kicker} title={c.about.title} lead={c.about.lead}/>
     <div class="grid grid--3">
-      {c.values.map(([title, text]: [string, string], i: number) =>
-        <Card number={String(i+1).padStart(2,'0')} title={title} text={text}/>
-      )}
+      {c.values.map((pair: readonly [string, string], i: number) => {
+        const [title, text] = pair;
+        return <Card number={String(i+1).padStart(2,'0')} title={title} text={text}/>;
+      })}
     </div>
   </div>
 </section>
