@@ -10,7 +10,8 @@ const path = Astro.url.pathname;
 <header class="site-header">
   <div class="container header-row">
     <a class="brand" href={locale === 'ar' ? '/' : '/en/'}>
-      <img src={site.logo} alt={site.name[locale]} width="560" height="160"/>
+      <img src={site.logo} alt={site.name[locale]} width="560" height="160" 
+        srcset="/brand/logo.svg 1200w" sizes="(max-width:600px) 320px, (max-width:1024px) 560px, 1200px"/>
     </a>
     <nav class="nav" aria-label={t.nav}>
       <ul class="nav-list" id="primary-nav" data-open="false">

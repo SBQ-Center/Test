@@ -1,1 +1,19 @@
-.skip-link{position:fixed;z-index:100;inset-block-start:10px;inset-inline-start:10px;padding:.7rem 1rem;background:var(--navy-950);color:#fff;transform:translateY(-150%)}.skip-link:focus{transform:none}:focus-visible{outline:3px solid var(--gold-500);outline-offset:3px}
+/* Accessibility helpers and global focus styles */
+.skip-link{
+  position:fixed;
+  z-index:100;
+  inset-block-start:10px;
+  inset-inline-start:10px;
+  padding:.7rem 1rem;
+  background:var(--navy-950);
+  color:#fff;
+  transform:translateY(-150%);
+}
+.skip-link:focus{transform:none;outline:3px solid #f0d278;outline-offset:4px}
+
+/* Provide a visible focus indicator for interactive elements */
+:focus{outline:3px solid #f0d278;outline-offset:3px}
+button:focus, a:focus, input:focus, textarea:focus{box-shadow:0 6px 18px rgba(11,19,30,0.12);}
+
+/* Respect reduced motion preference */
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
