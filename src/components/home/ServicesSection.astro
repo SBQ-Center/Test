@@ -1,0 +1,4 @@
+---
+import Heading from'../common/SectionHeading.astro';import Card from'../common/Card.astro';import{home}from'../../data/home';const{locale='ar'}=Astro.props;const c=home[locale];
+---
+<section class="section section--white"><div class="container"><Heading kicker={locale==='ar'?'خدماتنا':'Services'} title={locale==='ar'?'حلول بحثية واستشارية متكاملة':'Integrated Research and Consulting Solutions'}/><div class="grid grid--3">{c.services.map(([title,text],i)=><Card number={String(i+1).padStart(2,'0')} title={title} text={text}/>)}</div></div></section>
