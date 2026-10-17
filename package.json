@@ -1,0 +1,21 @@
+{
+  "name": "sbq-center-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "validate": "astro check && astro build"
+  },
+  "dependencies": {
+    "astro": "^7.4.0",
+    "@astrojs/check": "^0.9.4",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  }
+}
