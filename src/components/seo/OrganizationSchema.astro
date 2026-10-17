@@ -1,4 +1,20 @@
 ---
-import{site}from'../../config/site';import{location}from'../../config/location';const{locale='ar'}=Astro.props;const data={'@context':'https://schema.org','@type':'Organization',name:site.name[locale],url:site.url,logo:new URL(site.logo,site.url).href,address:{'@type':'PostalAddress',streetAddress:locale==='ar'?'شارع المطار':'Airport Street',addressLocality:locale==='ar'?'مدينة الضالع':'Al-Dhale City',addressRegion:locale==='ar'?'محافظة الضالع':'Al-Dhale Governorate',addressCountry:'YE'},sameAs:[]};
+import{site}from'../../config/site';
+const { locale = 'ar' } = Astro.props as { locale?: 'ar' | 'en' };
+const data = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: site.name[locale],
+  url: site.url,
+  logo: new URL(site.logo, site.url).href,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: locale === 'ar' ? 'شارع المطار' : 'Airport Street',
+    addressLocality: locale === 'ar' ? 'مدينة الضالع' : 'Al-Dhale City',
+    addressRegion: locale === 'ar' ? 'محافظة الضالع' : 'Al-Dhale Governorate',
+    addressCountry: 'YE'
+  },
+  sameAs: []
+};
 ---
 <script type="application/ld+json" set:html={JSON.stringify(data)}/>

@@ -1,4 +1,25 @@
 ---
-import FacebookIcon from'../icons/FacebookIcon.astro';import XIcon from'../icons/XIcon.astro';import YouTubeIcon from'../icons/YouTubeIcon.astro';import{activeSocialProfiles}from'../../config/social';const{locale='ar',showLabel=false}=Astro.props;const icons={facebook:FacebookIcon,x:XIcon,youtube:YouTubeIcon};
+import FacebookIcon from'../icons/FacebookIcon.astro';import XIcon from'../icons/XIcon.astro';import YouTubeIcon from'../icons/YouTubeIcon.astro';import{activeSocialProfiles}from'../../config/social';
+
+type Locale = 'ar' | 'en';
+const { locale = 'ar', showLabel = true } = Astro.props as { locale?: Locale; showLabel?: boolean };
+
+interface SocialProfile { key: string; url: string; label: { ar: string; en: string } }
+const icons: Record<string, any> = { facebook: FacebookIcon, x: XIcon, youtube: YouTubeIcon };
 ---
-{activeSocialProfiles.length>0&&<nav class="social-links" aria-label={locale==='ar'?'حسابات التواصل الاجتماعي':'Social media profiles'}><ul class="social-links__list">{activeSocialProfiles.map(profile=>{const Icon=icons[profile.key],label=profile.label[locale];return <li><a class="social-links__link" href={profile.url} target="_blank" rel="noopener noreferrer" aria-label={`${label}، ${locale==='ar'?'يفتح في نافذة جديدة':'opens in a new tab'}`}><Icon/>{showLabel&&<span>{label}</span>}</a></li>})}</ul></nav>}
+{activeSocialProfiles.length > 0 &&
+  <nav class="social-links" aria-label={locale === 'ar' ? 'حسابات التواصل الاجتماعي' : 'Social media profiles'}>
+    <ul class="social-links__list">
+      {activeSocialProfiles.map((profile: SocialProfile, i: number) => {
+        const Icon = icons[profile.key];
+        const label = profile.label[locale as Locale];
+        return <li key={i}>
+          <a class="social-links__link" href={profile.url} target="_blank" rel="noopener noreferrer" aria-label={`${label}, ${locale === 'ar' ? 'يفتح في نافذة جديدة' : 'opens in a new tab'}`}>
+            <Icon/>
+            {showLabel && <span>{label}</span>}
+          </a>
+        </li>
+      })}
+    </ul>
+  </nav>
+}

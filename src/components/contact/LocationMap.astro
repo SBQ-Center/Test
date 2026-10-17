@@ -1,4 +1,21 @@
 ---
-import LocationIcon from'../icons/LocationIcon.astro';import ExternalLinkIcon from'../icons/ExternalLinkIcon.astro';import{location,hasValidMapConfiguration}from'../../config/location';const{locale='ar'}=Astro.props;const ready=hasValidMapConfiguration(),title=locale==='ar'?'موقع المركز':'Center Location',open=locale==='ar'?'فتح الموقع في خرائط Google':'Open in Google Maps';
+import LocationIcon from'../icons/LocationIcon.astro';import ExternalLinkIcon from'../icons/ExternalLinkIcon.astro';import{location,hasValidMapConfiguration}from'../../config/location';
+
+type Locale = 'ar' | 'en';
+const { locale = 'ar' } = Astro.props as { locale?: Locale };
+const ready = hasValidMapConfiguration && location.googleMapsEmbedUrl && location.googleMapsUrl;
+const title = locale === 'ar' ? location.titleAr ?? 'الموقع' : location.titleEn ?? 'Location';
 ---
-<section class="location-map" aria-labelledby={`map-${locale}`}><div class="location-map__header"><span class="location-map__icon"><LocationIcon/></span><div><h2 id={`map-${locale}`}>{title}</h2><address>{location.address[locale]}</address></div></div>{ready?<><div class="location-map__frame"><iframe src={location.googleMapsEmbedUrl} title={`${title}: ${location.address[locale]}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div><a class="location-map__button" href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer"><span>{open}</span><ExternalLinkIcon/></a></>:<div class="location-map__placeholder" role="note"><p>{locale==='ar'?'قالب الخريطة جاهز. أضف الروابط في src/config/location.ts ثم فعّل showMap.':'The map template is ready. Add URLs in src/config/location.ts, then enable showMap.'}</p></div>}</section>
+<section class="location-map" aria-labelledby={`map-${locale}`}>
+  <div class="location-map__header">
+    <span class="location-map__icon"><LocationIcon/></span>
+    <div>
+      <h2 id={`map-${locale}`}>{title}</h2>
+      <address>{location.address[locale as Locale]}</address>
+    </div>
+  </div>
+  {ready ? <>
+    <div class="location-map__frame"><iframe src={location.googleMapsEmbedUrl} title={`${title}: ${location.address[locale as Locale]}`} loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+    <a class="location-map__button" href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer"><span>{locale === 'ar' ? 'فتح في خرائط جوجل' : 'Open in Google Maps'}</span><ExternalLinkIcon/></a>
+  </> : <div class="location-map__placeholder" role="note"><p>{locale === 'ar' ? 'قالب الخريطة جاهز. أضف الروابط في src/config/location.ts ثم فعّل showMap.' : 'The map template is ready. Add URLs in src/config/location.ts, then enable showMap.'}</p></div>}
+</section>

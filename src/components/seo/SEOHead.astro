@@ -1,4 +1,16 @@
 ---
-import{site}from'../../config/site';import{alternates}from'../../utils/locale';const{title,description,locale='ar',noindex=false}=Astro.props;const canonical=new URL(Astro.url.pathname,site.url).href,alt=alternates(Astro.url.pathname,site.url),image=new URL(site.socialImage,site.url).href;
+import{site}from'../../config/site';import{alternates}from'../../utils/locale';
+const { title, description, locale = 'ar', noindex = false } = Astro.props as { title?: string; description?: string; locale?: 'ar' | 'en'; noindex?: boolean };
+const canonical = new URL(Astro.url.pathname, site.url).href, alt = alternates(Astro.url.pathname, site.url), image = new URL(site.socialImage, site.url).href;
 ---
-<title>{title}</title><meta name="description" content={description}/><meta name="robots" content={noindex?'noindex, nofollow':'index, follow'}/><link rel="canonical" href={canonical}/><link rel="alternate" hreflang="ar" href={alt.ar}/><link rel="alternate" hreflang="en" href={alt.en}/><link rel="alternate" hreflang="x-default" href={alt.ar}/><meta property="og:type" content="website"/><meta property="og:title" content={title}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/><meta property="og:image" content={image}/><meta name="twitter:card" content="summary_large_image"/><link rel="icon" href="/brand/favicon.svg"/><link rel="manifest" href="/site.webmanifest"/><meta name="theme-color" content="#0b2740"/>
+<title>{title}</title>
+<meta name="description" content={description}/>
+<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'}/>
+<link rel="canonical" href={canonical}/>
+<link rel="alternate" hrefLang="ar" href={alt.ar} />
+<link rel="alternate" hrefLang="en" href={alt.en} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={image} />
+<meta property="og:url" content={canonical} />
+<meta name="twitter:card" content="summary_large_image" />
