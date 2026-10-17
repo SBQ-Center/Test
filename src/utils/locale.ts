@@ -1,0 +1,1 @@
+import type{Locale}from'../config/navigation';export function localizedPath(path:string,target:Locale){const clean=path.replace(/^\/en(?=\/|$)/,'')||'/';return target==='ar'?clean:clean==='/'?'/en/':`/en${clean}`}export function alternates(path:string,base:string){return{ar:new URL(localizedPath(path,'ar'),base).href,en:new URL(localizedPath(path,'en'),base).href}}
