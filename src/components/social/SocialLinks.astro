@@ -1,0 +1,4 @@
+---
+import FacebookIcon from'../icons/FacebookIcon.astro';import XIcon from'../icons/XIcon.astro';import YouTubeIcon from'../icons/YouTubeIcon.astro';import{activeSocialProfiles}from'../../config/social';const{locale='ar',showLabel=false}=Astro.props;const icons={facebook:FacebookIcon,x:XIcon,youtube:YouTubeIcon};
+---
+{activeSocialProfiles.length>0&&<nav class="social-links" aria-label={locale==='ar'?'حسابات التواصل الاجتماعي':'Social media profiles'}><ul class="social-links__list">{activeSocialProfiles.map(profile=>{const Icon=icons[profile.key],label=profile.label[locale];return <li><a class="social-links__link" href={profile.url} target="_blank" rel="noopener noreferrer" aria-label={`${label}، ${locale==='ar'?'يفتح في نافذة جديدة':'opens in a new tab'}`}><Icon/>{showLabel&&<span>{label}</span>}</a></li>})}</ul></nav>}
