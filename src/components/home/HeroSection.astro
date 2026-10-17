@@ -1,0 +1,4 @@
+---
+import{site}from'../../config/site';import{getUI}from'../../i18n/translations';const{locale='ar'}=Astro.props;const t=getUI(locale);
+---
+<section class="hero" aria-labelledby={`hero-${locale}`}><div class="container hero-grid"><div><p class="tagline">{site.tagline[locale]}</p><h1 id={`hero-${locale}`}>{site.name[locale]}</h1><p class="hero-description">{site.description[locale]}</p><div class="actions"><a class="btn btn--gold" href={locale==='ar'?'/publications/':'/en/publications/'}>{t.browse}</a><a class="btn btn--light" href={locale==='ar'?'/contact/':'/en/contact/'}>{t.request}</a></div></div><div class="hero-logo" aria-hidden="true"><img src={site.logo} alt="" width="560" height="160"/></div></div></section>
