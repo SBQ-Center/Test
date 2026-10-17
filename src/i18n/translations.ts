@@ -1,0 +1,6 @@
+import type{Locale}from'../config/navigation';
+export const ui={
+ ar:{alternate:'English',skip:'تجاوز إلى المحتوى',open:'فتح القائمة',close:'إغلاق القائمة',nav:'التنقل الرئيسي',quick:'روابط سريعة',address:'العنوان',email:'البريد الإلكتروني',phone:'الهاتف',rights:'جميع الحقوق محفوظة.',browse:'استكشف الإصدارات',request:'اطلب خدمة استشارية',contact:'تواصل معنا',intro:'نرحب باستفساراتكم وطلبات التعاون والخدمات الاستشارية.',fullName:'الاسم الكامل',subject:'الموضوع',message:'الرسالة',notice:'سيُفعّل الإرسال بعد ربط البريد المؤسسي. لا تُحفظ البيانات المدخلة حاليًا.',inactive:'الإرسال غير مفعّل حاليًا'},
+ en:{alternate:'العربية',skip:'Skip to content',open:'Open menu',close:'Close menu',nav:'Main navigation',quick:'Quick links',address:'Address',email:'Email',phone:'Phone',rights:'All rights reserved.',browse:'Browse Publications',request:'Request Consulting Services',contact:'Contact Us',intro:'We welcome inquiries, partnerships, and consulting requests.',fullName:'Full name',subject:'Subject',message:'Message',notice:'Submission will be enabled after connecting institutional email. Entered data is not currently stored.',inactive:'Submission is not active'}
+} as const;
+export const getUI=(locale:Locale)=>ui[locale];
