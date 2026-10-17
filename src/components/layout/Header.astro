@@ -31,21 +31,24 @@ if (b && m) {
   const close = () => {
     m.dataset.open = 'false';
     b.setAttribute('aria-expanded', 'false');
-    const openLabel = (b as any).dataset ? (b as any).dataset.openLabel : '';
-    b.setAttribute('aria-label', openLabel);
+    const openLabel = (b.dataset && b.dataset.openLabel) ? b.dataset.openLabel : '';
+    b.setAttribute('aria-label', openLabel || '');
     const span = b.querySelector('span');
     if (span) span.textContent = '☰';
   };
+
   b.addEventListener('click', () => {
     const o = m.dataset.open !== 'true';
     m.dataset.open = String(o);
     b.setAttribute('aria-expanded', String(o));
-    const label = o ? ((b as any).dataset && (b as any).dataset.closeLabel ? (b as any).dataset.closeLabel : '') : ((b as any).dataset && (b as any).dataset.openLabel ? (b as any).dataset.openLabel : '');
-    b.setAttribute('aria-label', label);
+    const label = o ? ((b.dataset && b.dataset.closeLabel) ? b.dataset.closeLabel : '') : ((b.dataset && b.dataset.openLabel) ? b.dataset.openLabel : '');
+    b.setAttribute('aria-label', label || '');
     const span = b.querySelector('span');
     if (span) span.textContent = o ? '×' : '☰';
   });
-  m.querySelectorAll('a').forEach(a => a.addEventListener('click', close));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') { close(); if (typeof (b as any).focus === 'function') (b as any).focus(); } });
+
+  m.querySelectorAll('a').forEach(function(a) { a.addEventListener('click', close); });
+
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') { close(); if (typeof b.focus === 'function') b.focus(); } });
 }
 </script>
