@@ -1,1 +1,16 @@
-import{defineCollection}from'astro:content';import{glob}from'astro/loaders';import{z}from'astro/zod';const publications=defineCollection({loader:glob({pattern:'**/*.{md,mdx}',base:'./src/content/publications'}),schema:z.object({title:z.string(),summary:z.string(),language:z.enum(['ar','en']),publishedAt:z.coerce.date(),featured:z.boolean().default(false),draft:z.boolean().default(true),cover:z.string().optional(),pdf:z.string().optional()})});export const collections={publications};
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
+
+const publications = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    date: z.string().optional(),
+    draft: z.boolean().optional(),
+    author: z.string().optional(),
+  }),
+});
+
+export const collections = {
+  publications,
+};
