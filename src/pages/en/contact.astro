@@ -1,0 +1,4 @@
+---
+import Base from'../../layouts/BaseLayout.astro';import Hero from'../../components/common/PageHero.astro';import Contact from'../../components/contact/ContactSection.astro';import Map from'../../components/contact/LocationMap.astro';import{site}from'../../config/site';
+---
+<Base locale="en" title={`Contact Us | ${site.shortName.en}`} description="Contact SBQ Center"><Hero title="Contact Us" lead="For inquiries, services, and partnerships."/><Contact locale="en"/><section class="section"><div class="container"><Map locale="en"/></div></section></Base>
