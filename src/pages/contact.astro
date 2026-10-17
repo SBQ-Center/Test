@@ -1,0 +1,4 @@
+---
+import Base from'../layouts/BaseLayout.astro';import Hero from'../components/common/PageHero.astro';import Contact from'../components/contact/ContactSection.astro';import Map from'../components/contact/LocationMap.astro';import{site}from'../config/site';
+---
+<Base title={`تواصل معنا | ${site.shortName.ar}`} description="تواصل مع مركز سبق"><Hero title="تواصل معنا" lead="للاستفسارات والخدمات والشراكات."/><Contact/><section class="section"><div class="container"><Map locale="ar"/></div></section></Base>
