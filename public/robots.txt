@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sbq-center-website.pages.dev/sitemap.xml
