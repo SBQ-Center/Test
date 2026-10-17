@@ -1,4 +1,16 @@
 ---
-import{home}from'../../data/home';const{locale='ar'}=Astro.props;const[title,text,button]=home[locale].cta;
+import{home}from'../../data/home';
+
+type Locale = 'ar' | 'en';
+const { locale = 'ar' } = Astro.props as { locale?: Locale };
+const [title, text, button] = home[locale].cta as [string, string, string];
 ---
-<section class="section"><div class="container"><div class="cta"><h2>{title}</h2><p>{text}</p><a class="btn btn--gold" href={locale==='ar'?'/contact/':'/en/contact/'}>{button}</a></div></div></section>
+<section class="section">
+  <div class="container">
+    <div class="cta">
+      <h2>{title}</h2>
+      <p>{text}</p>
+      <a class="btn btn--gold" href={locale === 'ar' ? '/contact/' : '/en/contact/'}>{button}</a>
+    </div>
+  </div>
+</section>

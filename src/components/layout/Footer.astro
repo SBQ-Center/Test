@@ -1,4 +1,29 @@
 ---
-import{site}from'../../config/site';import{navigation}from'../../config/navigation';import{getUI}from'../../i18n/translations';import SocialLinks from'../social/SocialLinks.astro';const{locale='ar'}=Astro.props;const t=getUI(locale);
+import{site}from'../../config/site';import{navigation}from'../../config/navigation';import{getUI}from'../../i18n/translations';import SocialLinks from'../social/SocialLinks.astro';
+
+type Locale = 'ar' | 'en';
+const { locale = 'ar' } = Astro.props as { locale?: Locale };
+const t = getUI(locale);
 ---
-<footer class="site-footer"><div class="container footer-grid"><section><img class="footer-logo" src={site.logo} alt={site.name[locale]} width="560" height="160"/><p>{site.description[locale]}</p><SocialLinks locale={locale}/></section><nav aria-label={t.quick}><h2>{t.quick}</h2><ul class="footer-links">{navigation[locale].slice(0,6).map(([label,href])=><li><a href={href}>{label}</a></li>)}</ul></nav><section><h2>{t.address}</h2><address>{site.address[locale]}</address></section></div><div class="footer-bottom"><div class="container">© {new Date().getFullYear()} {site.name[locale]}. {t.rights}</div></div></footer>
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <section>
+      <img class="footer-logo" src={site.logo} alt={site.name[locale]} width="560" height="160"/>
+      <p>{site.description[locale]}</p>
+      <SocialLinks locale={locale} />
+    </section>
+
+    <nav aria-label={t.quick}>
+      <h2>{t.quick}</h2>
+      <ul class="footer-links">
+        {navigation[locale].slice(0,6).map(([label, href]: [string, string], i: number) => <li key={i}><a href={href}>{label}</a></li>)}
+      </ul>
+    </nav>
+
+    <section>
+      <h2>{t.address}</h2>
+      <address>{site.address[locale]}</address>
+    </section>
+  </div>
+  <div class="footer-bottom"><div class="container">© {new Date().getFullYear()} {site.name[locale]}. {t.rights}</div></div>
+</footer>

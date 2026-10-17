@@ -1,4 +1,18 @@
 ---
-import Heading from'../common/SectionHeading.astro';import Card from'../common/Card.astro';import{home}from'../../data/home';const{locale='ar'}=Astro.props;const c=home[locale],desc=locale==='ar'?'برنامج متخصص لإنتاج الدراسات والتحليلات وبناء المعرفة.':'A specialized program producing studies, analysis, and knowledge.';
+import Heading from'../common/SectionHeading.astro';import Card from'../common/Card.astro';import{home}from'../../data/home';
+
+type Locale = 'ar' | 'en';
+const { locale = 'ar' } = Astro.props as { locale?: Locale };
+const c = home[locale];
+const desc = locale === 'ar' ? 'برنامج متخصص لإنتاج الدراسات والتحليلات وبناء المعرفة.' : 'A specialized program producing studies, analysis, and knowledge.';
 ---
-<section class="section section--soft"><div class="container"><Heading kicker={locale==='ar'?'برامجنا':'Programs'} title={locale==='ar'?'مسارات بحثية تواكب الأولويات':'Research Tracks Aligned with Key Priorities'}/><div class="grid grid--3">{c.programs.map((title,i)=><Card number={String(i+1).padStart(2,'0')} title={title} text={desc}/>)}</div></div></section>
+<section class="section section--soft">
+  <div class="container">
+    <Heading kicker={locale === 'ar' ? 'برامجنا' : 'Programs'} title={locale === 'ar' ? 'مسارات بحثية تواكب الأولويات' : 'Research Tracks Aligned with Key Priorities'} />
+    <div class="grid grid--3">
+      {c.programs.map((title: string, i: number) =>
+        <Card number={String(i+1).padStart(2,'0')} title={title} text={desc} />
+      )}
+    </div>
+  </div>
+</section>
