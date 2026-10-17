@@ -1,1 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 160" role="img"><title>شعار مركز سبق المؤقت</title><rect width="560" height="160" rx="18" fill="#0b2740"/><g transform="translate(30 28)" fill="none" stroke="#b08d57" stroke-width="8"><circle cx="50" cy="50" r="36"/><path d="M76 76l30 30"/></g><text x="170" y="68" fill="#fff" font-size="38" font-family="Arial" font-weight="700">مركز سبق</text><text x="170" y="112" fill="#d7bd91" font-size="20" font-family="Arial">للدراسات والخدمات الاستشارية</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1200" role="img" aria-labelledby="title desc">
+  <title id="title">SBQ Center logo</title>
+  <desc id="desc">Gold and navy logo incorporating a magnifying glass, globe, open book and the SBQ wordmark.</desc>
+
+  <defs>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0%" stop-color="#fdf0b0"/>
+      <stop offset="18%" stop-color="#f5d66d"/>
+      <stop offset="50%" stop-color="#c98a1a"/>
+      <stop offset="72%" stop-color="#f0d27d"/>
+      <stop offset="100%" stop-color="#8b5b10"/>
+    </linearGradient>
+    <linearGradient id="goldSoft" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#f9ecb7"/>
+      <stop offset="100%" stop-color="#c88a1a"/>
+    </linearGradient>
+    <linearGradient id="navy" x1="0" x2="1">
+      <stop offset="0%" stop-color="#133a63"/>
+      <stop offset="100%" stop-color="#071d39"/>
+    </linearGradient>
+    <radialGradient id="globeG" cx="50%" cy="35%" r="60%">
+      <stop offset="0%" stop-color="#f8dd7a"/>
+      <stop offset="22%" stop-color="#d4a530"/>
+      <stop offset="60%" stop-color="#7a4f10"/>
+      <stop offset="100%" stop-color="#3c2709"/>
+    </radialGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#f4d06f" flood-opacity="0.7"/>
+    </filter>
+  </defs>
+
+  <g transform="translate(0,20)">
+    <g filter="url(#glow)">
+      <circle cx="700" cy="245" r="170" fill="none" stroke="url(#gold)" stroke-width="16"/>
+      <circle cx="700" cy="245" r="140" fill="url(#navy)" opacity="0.9"/>
+      <circle cx="700" cy="245" r="118" fill="none" stroke="url(#gold)" stroke-width="8"/>
+      <circle cx="700" cy="245" r="92" fill="url(#navy)" opacity="0.8"/>
+
+      <path d="M700 125 L700 365 M580 245 L820 245 M620 170 Q700 205 780 170 M620 320 Q700 285 780 320" fill="none" stroke="url(#gold)" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="700" cy="245" r="26" fill="url(#goldSoft)"/>
+      <circle cx="700" cy="245" r="12" fill="#f7f0d8"/>
+
+      <path d="M680 220 C 620 230, 610 300, 700 310 C 780 300, 780 230, 720 220 C 715 180, 690 180, 680 220 Z" fill="url(#goldSoft)" opacity="0.35"/>
+    </g>
+
+    <g transform="translate(0,160)">
+      <path d="M710 120 Q760 75 820 110 L820 315 Q760 360 710 330 Z" fill="url(#gold)" opacity="0.9"/>
+      <path d="M690 120 Q640 75 580 110 L580 315 Q640 360 690 330 Z" fill="url(#gold)" opacity="0.9"/>
+      <path d="M700 150 L720 150 L760 180 L760 260 L700 315 L640 260 L640 180 L680 150 Z" fill="url(#navy)" opacity="0.96"/>
+      <path d="M580 335 L820 335 Q825 418 700 470 Q575 418 580 335 Z" fill="url(#gold)"/>
+      <path d="M585 338 L815 338" stroke="#2d4c6a" stroke-width="14" stroke-linecap="round"/>
+      <path d="M620 185 Q700 250 780 185" fill="none" stroke="#f0d278" stroke-width="10" stroke-linecap="round"/>
+    </g>
+
+    <g transform="translate(270,500)">
+      <path d="M0 150 C120 80, 240 80, 365 150 L365 20 C 290 -10, 175 -15, 0 20 Z" fill="url(#gold)" opacity="0.9"/>
+      <path d="M0 150 C110 240, 255 240, 365 150 L365 20 C 255 50, 110 50, 0 20 Z" fill="url(#navy)" opacity="0.96"/>
+      <path d="M350 150 C480 80, 605 80, 730 150 L730 20 C 640 -10, 550 -15, 350 20 Z" fill="url(#gold)" opacity="0.9"/>
+      <path d="M350 150 C470 245, 610 245, 730 150 L730 20 C 610 50, 470 50, 350 20 Z" fill="url(#navy)" opacity="0.96"/>
+      <circle cx="545" cy="86" r="98" fill="url(#globeG)" stroke="url(#gold)" stroke-width="8"/>
+      <path d="M470 86 H620 M545 0 V170 M440 40 C470 70, 510 90, 545 86 C580 90, 620 70, 650 40 M440 130 C470 100, 510 88, 545 90 C590 88, 620 100, 650 130" fill="none" stroke="#0b1d30" stroke-width="3" opacity="0.65"/>
+      <path d="M545 27 C500 58, 480 92, 545 118 C610 92, 605 58, 545 27 Z" fill="none" stroke="#0b1d30" stroke-width="3" opacity="0.6"/>
+      <path d="M545 25 C510 60, 510 152, 545 170 C580 152, 580 60, 545 25 Z" fill="none" stroke="#0b1d30" stroke-width="3" opacity="0.5"/>
+      <path d="M545 69 L545 232" stroke="#0b1d30" stroke-width="3" opacity="0.55"/>
+      <path d="M118 200 C180 280, 340 260, 365 180" fill="none" stroke="#f7d77d" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+      <path d="M365 180 C440 260, 540 245, 730 190" fill="none" stroke="#f7d77d" stroke-width="16" stroke-linecap="round" opacity="0.7"/>
+    </g>
+
+    <g transform="translate(0,272)">
+      <text x="700" y="560" text-anchor="middle" font-size="300" font-weight="900" font-family="Georgia, 'Times New Roman', serif" fill="url(#gold)" letter-spacing="-18">SBQ</text>
+      <path d="M360 660 H1040" stroke="url(#gold)" stroke-width="9" stroke-linecap="round"/>
+      <path d="M425 680 H975" stroke="url(#gold)" stroke-width="5" stroke-linecap="round" opacity="0.8"/>
+      <path d="M350 705 Q700 775 1050 705" fill="none" stroke="url(#gold)" stroke-width="7" opacity="0.85"/>
+    </g>
+
+    <g transform="translate(0,160)">
+      <text x="700" y="920" text-anchor="middle" direction="rtl" font-size="72" font-weight="700" font-family="Tahoma, Arial, sans-serif" fill="url(#gold)" letter-spacing="2">مركز سبق للدراسات والخدمات الاستشارية</text>
+      <text x="700" y="980" text-anchor="middle" font-size="26" font-weight="700" letter-spacing="8" fill="#e5d39d" font-family="Arial, sans-serif">SBQ CENTER FOR RESEARCH AND CONSULTING SERVICES</text>
+      <text x="700" y="1045" text-anchor="middle" direction="rtl" font-size="38" font-weight="700" font-family="Tahoma, Arial, sans-serif" fill="url(#gold)" letter-spacing="2">من عمق المعرفة إلى صواب القرار</text>
+      <text x="700" y="1098" text-anchor="middle" font-size="22" font-weight="700" letter-spacing="7" fill="#e8dca8" font-family="Arial, sans-serif">FROM DEEP KNOWLEDGE TO SOUND DECISIONS</text>
+    </g>
+  </g>
+</svg>
